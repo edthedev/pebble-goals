@@ -14,7 +14,7 @@ function sendMessage() {
 // Called when JS is ready
 Pebble.addEventListener("ready",
       function(e) {
-        Pebble.sendAppMessage({"status": 1, "message":"Do a thing?"});
+        Pebble.sendAppMessage({"status": 1, "message":"No results yet."});
         
        // Construct URL
        // var url = 'https://goals.app.delaporte.us/api/next';
@@ -29,16 +29,20 @@ Pebble.addEventListener("ready",
         xhr.onload = function () {
           callback(this.responseText);
         };
+        console.log("About to open url: " + url);
         xhr.open(type, url);
+        console.log("About to send...");
         xhr.send();
+        console.log("Finished send...");
         };
         
         // Send request
       xhrRequest(url, 'GET', 
       function(responseText) {
-        var json = JSON.parse(responseText);
-        console.log("API result: " + json);
+        console.log("API raw result: " + responseText);
+        var json_txt = JSON.parse(responseText);
         Pebble.sendAppMessage({"status": 1, "message":"Got something..."});
+        console.log("API result: " + json_txt);
     }      
   ); 
         
@@ -52,7 +56,8 @@ Pebble.addEventListener("appmessage",
 							});
 
 Pebble.addEventListener("showConfiguration", function() {
-  var url = ' https://goals.app.delaporte.us/';
+  // var url = ' https://goals.app.delaporte.us/';
+  var url = 'https://mygoal.space';
   console.log("showing configuration at " + url);
   Pebble.openURL(url);
 });
