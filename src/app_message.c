@@ -48,8 +48,13 @@ void init(void) {
 	window = window_create();
 	window_stack_push(window, true);
   APP_LOG(APP_LOG_LEVEL_DEBUG, "Get Label ready...");
-  goal_text = text_layer_create(GRect(0, 0, 144, 15));
+  goal_text = text_layer_create(GRect(0, 0, 144, 30));
   APP_LOG(APP_LOG_LEVEL_DEBUG, "Label ready...");
+  text_layer_set_text_color(goal_text, GColorBlack);
+   text_layer_set_font(goal_text, fonts_get_system_font(FONT_KEY_ROBOTO_CONDENSED_21));
+  text_layer_set_text_alignment(goal_text, GTextAlignmentCenter);
+  text_layer_set_text(goal_text, "Blorp!");
+  layer_add_child(window_get_root_layer(window), text_layer_get_layer(goal_text));
 	
 	// Register AppMessage handlers
 	app_message_register_inbox_received(in_received_handler); 
