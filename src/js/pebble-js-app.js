@@ -18,20 +18,21 @@ Pebble.addEventListener("ready",
         
        // Construct URL
        // var url = 'https://goals.app.delaporte.us/api/next';
-      var url = 'https://mygoal.space/api/next';
       // var url = 'https://mygoal.space';
       // var url = 'https://www.cacert.org/index.php?id=1';
+      // var url = 'https://mygoal.space/api/next';
+      var url = 'https://mygoal.space/api/user';
       // var url = 'https://google.com';
         
         
      var xmlhttp = new XMLHttpRequest();
      xmlhttp.onreadystatechange=function()
   {
-       console.log("Status code returned: " + xmlhttp.status);
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-      console.log("Got something: " + xmlhttp.responseText);
-    }
+         console.log("Status code returned: " + xmlhttp.status);
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        console.log("Got something: " + xmlhttp.responseText);
+      }
   }
   // xmlhttp.open("GET",url,true);
   xmlhttp.open("GET",url,false);

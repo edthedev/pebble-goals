@@ -4,7 +4,7 @@
         "status": 0
     },
     "capabilities": [
-        ""
+        "configurable"
     ],
     "companyName": "edthedev@gmail.com",
     "longName": "Next Goal",
@@ -12,7 +12,7 @@
     "resources": {
         "media": []
     },
-    "sdkVersion": "3",
+    "sdkVersion": "2",
     "shortName": "Next Goal",
     "uuid": "22f05377-78dd-4bbc-bb09-c017bd320503",
     "versionCode": 1,
