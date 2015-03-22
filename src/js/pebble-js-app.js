@@ -15,6 +15,29 @@ function sendMessage() {
 Pebble.addEventListener("ready",
       function(e) {
         Pebble.sendAppMessage({"status": 1, "message":"Do a thing?"});
+        
+       // Construct URL
+      var url = 'https://goals.app.delaporte.us/api/next';
+        
+      var xhrRequest = function (url, type, callback) {
+        console.log("Calling API URL: " + url);
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          callback(this.responseText);
+        };
+        xhr.open(type, url);
+        xhr.send();
+        };
+        
+        // Send request
+      xhrRequest(url, 'GET', 
+      function(responseText) {
+        var json = JSON.parse(responseText);
+        console.log("API result: " + json);
+        Pebble.sendAppMessage({"status": 1, "message":"Got something..."});
+    }      
+  ); 
+        
 });
 												
 // Called when incoming message from the Pebble is received
@@ -23,3 +46,9 @@ Pebble.addEventListener("appmessage",
 								console.log("Received Status: " + e.payload.status);
 								sendMessage();
 							});
+
+Pebble.addEventListener("showConfiguration", function() {
+  var url = ' https://goals.app.delaporte.us/';
+  console.log("showing configuration at " + url);
+  Pebble.openURL(url);
+});
