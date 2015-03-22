@@ -17,7 +17,11 @@ Pebble.addEventListener("ready",
         Pebble.sendAppMessage({"status": 1, "message":"Do a thing?"});
         
        // Construct URL
-      var url = 'https://goals.app.delaporte.us/api/next';
+       // var url = 'https://goals.app.delaporte.us/api/next';
+      var url = 'https://mygoal.space/api/next';
+      // var url = 'https://mygoal.space';
+      // var url = 'https://www.cacert.org/index.php?id=1';
+      // var url = 'https://google.com';
         
       var xhrRequest = function (url, type, callback) {
         console.log("Calling API URL: " + url);
