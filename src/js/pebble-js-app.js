@@ -14,8 +14,7 @@ function sendMessage() {
 // Called when JS is ready
 Pebble.addEventListener("ready",
       function(e) {
-	Pebble.sendAppMessage({"status": 1});
-	Pebble.sendAppMessage({"message": "Do a thing?"});
+        Pebble.sendAppMessage({"status": 1, "message":"Do a thing?"});
 });
 												
 // Called when incoming message from the Pebble is received
