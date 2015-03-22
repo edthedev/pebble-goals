@@ -23,6 +23,19 @@ Pebble.addEventListener("ready",
       // var url = 'https://www.cacert.org/index.php?id=1';
       // var url = 'https://google.com';
         
+        
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.onreadystatechange=function()
+  {
+       console.log("Status code returned: " + xmlhttp.status);
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      console.log("Got something: " + xmlhttp.responseText);
+    }
+  }
+  xmlhttp.open("GET",url,true);
+  xmlhttp.send(); 
+        
       var xhrRequest = function (url, type, callback) {
         console.log("Calling API URL: " + url);
         var xhr = new XMLHttpRequest();
@@ -33,7 +46,7 @@ Pebble.addEventListener("ready",
         xhr.open(type, url);
         console.log("About to send...");
         xhr.send();
-        console.log("Finished send...");
+        console.log("Finished send ...");
         };
         
         // Send request
