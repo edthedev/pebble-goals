@@ -33,8 +33,12 @@ Pebble.addEventListener("ready",
       console.log("Got something: " + xmlhttp.responseText);
     }
   }
-  xmlhttp.open("GET",url,true);
+  // xmlhttp.open("GET",url,true);
+  xmlhttp.open("GET",url,false);
   xmlhttp.send(); 
+  console.log("Status code returned: " + xmlhttp.status);
+  console.log("Got something?: " + xmlhttp.responseText);
+        
         
       var xhrRequest = function (url, type, callback) {
         console.log("Calling API URL: " + url);
