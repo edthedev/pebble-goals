@@ -14,55 +14,26 @@ function sendMessage() {
 // Called when JS is ready
 Pebble.addEventListener("ready",
       function(e) {
-        Pebble.sendAppMessage({"status": 1, "message":"No results yet."});
+         Pebble.sendAppMessage({"status": 1, "message":"No results yet."});
         
        // Construct URL
        // var url = 'https://goals.app.delaporte.us/api/next';
       // var url = 'https://mygoal.space';
       // var url = 'https://www.cacert.org/index.php?id=1';
-      // var url = 'https://mygoal.space/api/next';
-      var url = 'https://mygoal.space/api/user';
+         var url = 'https://mygoal.space/api/next';
+      // var url = 'https://mygoal.space/api/user';
       // var url = 'https://google.com';
         
         
-     var xmlhttp = new XMLHttpRequest();
-     xmlhttp.onreadystatechange=function()
-  {
-         console.log("Status code returned: " + xmlhttp.status);
-    if (xmlhttp.readyState==4 && xmlhttp.status==200)
-      {
-        console.log("Got something: " + xmlhttp.responseText);
-      }
-  }
-  // xmlhttp.open("GET",url,true);
-  xmlhttp.open("GET",url,false);
-  xmlhttp.send(); 
-  console.log("Status code returned: " + xmlhttp.status);
-  console.log("Got something?: " + xmlhttp.responseText);
-        
-        
-      var xhrRequest = function (url, type, callback) {
-        console.log("Calling API URL: " + url);
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-          callback(this.responseText);
-        };
-        console.log("About to open url: " + url);
-        xhr.open(type, url);
-        console.log("About to send...");
-        xhr.send();
-        console.log("Finished send ...");
-        };
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.open("GET",url,false);
+          xmlhttp.send(); 
+          console.log("Status code returned: " + xmlhttp.status);
+          console.log("Got something?: " + xmlhttp.responseText);
+          var json_txt = JSON.parse(xmlhttp.responseText);
+          console.log("API result: " + json_txt);
         
         // Send request
-      xhrRequest(url, 'GET', 
-      function(responseText) {
-        console.log("API raw result: " + responseText);
-        var json_txt = JSON.parse(responseText);
-        Pebble.sendAppMessage({"status": 1, "message":"Got something..."});
-        console.log("API result: " + json_txt);
-    }      
-  ); 
         
 });
 												
