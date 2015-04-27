@@ -20,9 +20,10 @@ Pebble.addEventListener("ready",
        // var url = 'https://goals.app.delaporte.us/api/next';
       // var url = 'https://mygoal.space';
       // var url = 'https://www.cacert.org/index.php?id=1';
-         var url = 'https://mygoal.space/api/next';
+         // var url = 'https://mygoal.space/api/next';
       // var url = 'https://mygoal.space/api/user';
-      // var url = 'https://google.com';
+      var url = "https://mygoal.space/api/user";
+         //var url = 'https://google.com';
         
         
           var xmlhttp = new XMLHttpRequest();
